@@ -1,0 +1,19 @@
+{
+  "name": "searchx",
+  "version": "1.0.0",
+  "description": "search page demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guy88a/searchx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guy88a/searchx/issues"
+  },
+  "homepage": "https://github.com/guy88a/searchx#readme"
+}
