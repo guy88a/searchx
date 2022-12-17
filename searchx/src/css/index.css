@@ -1,0 +1,12 @@
+html, body, div, span, section, input, a {
+  padding: 0;
+  margin: 0;
+}
+
+.searchx {
+  width: 100vw;
+  height: 100vh;
+  color: #bdc1c6;
+  background-color: #202124;
+}
+/*# sourceMappingURL=index.css.map */
