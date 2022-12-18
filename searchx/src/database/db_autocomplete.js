@@ -46,4 +46,6 @@ const AUTOCOMPLETE = [
       ["support"]
     ]
   ]
-]
+];
+
+export default AUTOCOMPLETE;
