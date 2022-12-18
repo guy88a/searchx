@@ -1,0 +1,43 @@
+@mixin AutoCompleteList() {
+  position: absolute;
+  // display: none;
+  top: 100%;
+  left: -1px;
+  width: 100%;
+  height: 330px;
+
+  background-color: var(--bg-dark-selected);
+
+  border: 1px solid var(--bg-dark-selected);
+  border-radius: 0 0 20px 20px;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 94%;
+    height: 1px;
+    margin: 0 auto 5px auto;
+
+    background-color: var(--border-light);
+  }
+
+  &__ac-item {
+    height: 30px;
+    padding-left: 14px;
+
+    line-height: 30px;
+    font-family: inherit;
+
+    &__icon {
+      display: block;
+      float: left;
+      width: 20px;
+      height: 20px;
+      padding-top: 5px;
+    }
+
+    &:hover {
+      background-color: var(--bg-medium-selected);
+    }
+  }
+}

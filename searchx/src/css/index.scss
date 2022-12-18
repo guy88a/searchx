@@ -1,10 +1,23 @@
 @import './reset';
+@import './variables';
+
+@import '../components/SearchSection/index';
 
 .searchx {
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 
-    color: #bdc1c6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #bdc1c6;
 
-    background-color: #202124;
+  background-color: var(--bg-dark);
+
+  &__search {
+    @include SearchSection();
+  }
 }
