@@ -2,10 +2,21 @@
 
 @mixin SearchSection() {
     width: 100%;
-    padding-bottom: 10%;
+    padding: 1% 0 12% 0;
 
     &--minimized {
-      padding-bottom: 0;
+      padding: 1.5% 0 60px 0px;
+
+      border-bottom: 1px solid #3c4043;
+
+      & .searchx__search__input-wrapper {
+        width: 690px;
+        float: left;
+        margin: 0 auto 0 210px;
+
+        background-color: var(--bg-dark-selected);
+        border-color: var(--bg-dark-selected);
+      }
     }
 
     &__input-wrapper {

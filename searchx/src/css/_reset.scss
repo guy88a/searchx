@@ -9,3 +9,13 @@ a {
     margin: 0;
     font-size: 16px;
 }
+
+a {
+    color: #8ab4f8;
+    font-size: inherit;
+    text-decoration: none;
+
+    &:visited {
+        color: #c58af9;
+    }
+}

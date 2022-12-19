@@ -1,13 +1,14 @@
 import { useState, useRef } from 'react';
 import useAutoComplete from '../../hooks/useAutoComplete';
-import { search } from '../../utils/searchUtil';
+// import { search } from '../../utils/searchUtil';
+import useSearch from '../../hooks/useSearch';
 import { updateSearchHistory } from '../../utils/storageUtil';
 
 import AutoCompleteList from './sub/AutoCompleteList';
 
-import icon_magglass from '../../icons/mag_glass.svg'
-import icon_microphone from '../../icons/microphone.svg'
-import icon_close from '../../icons/close.svg'
+import icon_magglass from '../../icons/mag_glass.svg';
+import icon_microphone from '../../icons/microphone.svg';
+import icon_close from '../../icons/close.svg';
 import { useEffect } from 'react';
 
 const SearchSection = ({ searchParams }) => {
@@ -18,6 +19,7 @@ const SearchSection = ({ searchParams }) => {
   const inputRef = useRef(null);
   // const autoCompleteResults = useAutoComplete(inputValue);
   // const searchHistory = getSearchHistory();
+  const { search } = useSearch();
   const { autoCompleteResults, searchHistory } = useAutoComplete(inputValue);
 
   const resultsShowenClass = searchParams ? 'searchx__search--minimized' : '';
@@ -88,7 +90,8 @@ const SearchSection = ({ searchParams }) => {
             src={icon_close}
             alt="Clear input"
             onClick={handleClearInputValue}
-          />}
+          />
+        }
         {/* microphone icon */}
         <img className="searchx__search__input-wrapper__icon | searchx__search__input-wrapper__icon--microphone"
           src={icon_microphone}

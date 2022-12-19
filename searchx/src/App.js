@@ -10,7 +10,7 @@ function App() {
   return (
     <section className="searchx">
       <SearchSection searchParams={searchParams} />
-      <ResultsSection searchParams={searchParams} />
+      {searchParams && <ResultsSection searchParams={searchParams} />}
     </section>
   );
 }

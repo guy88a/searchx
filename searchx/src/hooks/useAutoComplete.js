@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getSearchHistory } from "../utils/storageUtil";
+
 import AUTOCOMPLETE from "../database/db_autocomplete";
 
 const useAutoComplete = (inputValue = '') => {

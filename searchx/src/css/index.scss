@@ -2,6 +2,7 @@
 @import './variables';
 
 @import '../components/SearchSection/index';
+@import '../components/ResultsSection/index';
 
 .searchx {
   display: flex;
@@ -19,5 +20,9 @@
 
   &__search {
     @include SearchSection();
+  }
+
+  &__results {
+    @include ResultsSection();
   }
 }
