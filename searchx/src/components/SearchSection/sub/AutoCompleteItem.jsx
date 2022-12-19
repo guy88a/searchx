@@ -1,6 +1,8 @@
 import { search } from '../../../utils/searchUtil';
+import { updateSearchHistory } from '../../../utils/storageUtil';
 
-import icon_magglass from '../../../icons/mag_glass.svg'
+import icon_magglass from '../../../icons/mag_glass.svg';
+import icon_close from '../../../icons/close.svg';
 
 const AutoCompleteItem = ({ value = '', type = 'autocomplete', setInputValue = function(){} }) => {
 
@@ -9,7 +11,11 @@ const AutoCompleteItem = ({ value = '', type = 'autocomplete', setInputValue = f
   function handleItemClick() {
     setInputValue(value);
     search(value);
-    // window.location.search = `?q=${value.replace(/\s/g, '+')}`;
+  }
+
+  function handleRemoveHistory(e) {
+    e.stopPropagation();
+    updateSearchHistory(value, true);
   }
 
   return (
@@ -23,6 +29,10 @@ const AutoCompleteItem = ({ value = '', type = 'autocomplete', setInputValue = f
       alt="autocomplete result"
       />
       <div className="searchx__search__input-wrapper__list-wrapper__ac-item__text">{value}</div>
+
+      {type === 'history' &&
+        <span className="searchx__search__input-wrapper__list-wrapper__ac-item__remove" onClick={handleRemoveHistory}>Delete</span>
+      }
     </div>
   )
 }

@@ -10,6 +10,16 @@ a {
   font-size: 16px;
 }
 
+a {
+  color: #8ab4f8;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #c58af9;
+}
+
 :root {
   --text-light: #e8eaed;
   --text-history: #c58af9;
@@ -43,11 +53,20 @@ a {
 
 .searchx__search {
   width: 100%;
-  padding-bottom: 10%;
+  padding: 1% 0 12% 0;
 }
 
 .searchx__search--minimized {
-  padding-bottom: 0;
+  padding: 1.5% 0 60px 0px;
+  border-bottom: 1px solid #3c4043;
+}
+
+.searchx__search--minimized .searchx__search__input-wrapper {
+  width: 690px;
+  float: left;
+  margin: 0 auto 0 210px;
+  background-color: var(--bg-dark-selected);
+  border-color: var(--bg-dark-selected);
 }
 
 .searchx__search__input-wrapper {
@@ -147,6 +166,7 @@ a {
 }
 
 .searchx__search__input-wrapper__list-wrapper__ac-item {
+  position: relative;
   height: 30px;
   padding-left: 14px;
   line-height: 30px;
@@ -166,6 +186,26 @@ a {
   padding-top: 5px;
 }
 
+.searchx__search__input-wrapper__list-wrapper__ac-item__icon--remove {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.searchx__search__input-wrapper__list-wrapper__ac-item__remove {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 0.825rem;
+  color: #aaadb2;
+  cursor: pointer;
+}
+
+.searchx__search__input-wrapper__list-wrapper__ac-item__remove:hover {
+  text-decoration: underline;
+  color: #8ab4f8;
+}
+
 .searchx__search__input-wrapper__list-wrapper__ac-item__text {
   width: 100%;
   text-indent: 10px;
@@ -173,5 +213,49 @@ a {
 
 .searchx__search__input-wrapper__list-wrapper__ac-item:hover {
   background-color: var(--bg-medium-selected);
+}
+
+.searchx__results {
+  width: 100%;
+  height: 100vh;
+  padding-left: 230px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.searchx__results__metabar {
+  width: 100%;
+  margin-bottom: 7px;
+  font-family: Google Sans, arial, sans-serif;
+  line-height: 43px;
+  font-size: 0.875rem;
+}
+
+.searchx__results__container {
+  width: 600px;
+}
+
+.searchx__results__container__search-result {
+  margin-bottom: 30px;
+}
+
+.searchx__results__container__search-result__url {
+  line-height: 23px;
+  font-size: 0.875rem;
+}
+
+.searchx__results__container__search-result__url__anchor {
+  color: #e8eaed !important;
+}
+
+.searchx__results__container__search-result__title {
+  line-height: 31px;
+  font-size: 1.25rem;
+}
+
+.searchx__results__container__search-result__description {
+  line-height: 23px;
+  font-size: 0.875rem;
 }
 /*# sourceMappingURL=index.css.map */

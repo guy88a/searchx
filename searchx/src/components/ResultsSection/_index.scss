@@ -1,0 +1,43 @@
+@mixin ResultsSection() {
+  width: 100%;
+  height: 100vh;
+  padding-left: 230px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+
+  &__metabar {
+    width: 100%;
+    margin-bottom: 7px;
+
+    font-family: Google Sans, arial, sans-serif;
+    line-height: 43px;
+    font-size: 0.875rem;
+  }
+
+  &__container {
+    width: 600px;
+
+    &__search-result {
+      margin-bottom: 30px;
+
+      &__url {
+        line-height: 23px;
+        font-size: 0.875rem;
+
+        &__anchor {
+          color: #e8eaed !important;
+        }
+      }
+
+      &__title {
+        line-height: 31px;
+        font-size: 1.25rem;
+      }
+
+      &__description {
+        line-height: 23px;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
