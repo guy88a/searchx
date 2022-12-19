@@ -7,17 +7,17 @@ const useAutoComplete = (inputValue = '') => {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    const filteredResults = AUTOCOMPLETE.filter((item, i) => {
-      return inputValue && item.startsWith(inputValue);
-    })
-    setResults(filteredResults);
-  }, [inputValue]);
-
-  useEffect(() => {
     const filteredResults = getSearchHistory().filter((item, i) => {
       return item.startsWith(inputValue);
     })
     setHistory(filteredResults);
+  }, [inputValue]);
+
+  useEffect(() => {
+    const filteredResults = AUTOCOMPLETE.filter((item, i) => {
+      return !history.includes(item) && inputValue && item.startsWith(inputValue);
+    })
+    setResults(filteredResults);
   }, [inputValue]);
 
   return {
