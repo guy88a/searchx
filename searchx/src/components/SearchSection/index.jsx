@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import useAutoComplete from '../../hooks/useAutoComplete';
-import { updateSearchHistory, getSearchHistory } from '../../utils/storageManager';
+import { search } from '../../utils/searchUtil';
+import { updateSearchHistory } from '../../utils/storageUtil';
 
 import AutoCompleteList from './sub/AutoCompleteList';
 
@@ -15,8 +16,9 @@ const SearchSection = ({ searchParams }) => {
   const [showAutoCompleteList, setShowAutoCompleteList] = useState(false);
   const containerRef = useRef(null);
   const inputRef = useRef(null);
-  const autoCompleteResults = useAutoComplete(inputValue);
-  const searchHistory = getSearchHistory();
+  // const autoCompleteResults = useAutoComplete(inputValue);
+  // const searchHistory = getSearchHistory();
+  const { autoCompleteResults, searchHistory } = useAutoComplete(inputValue);
 
   const resultsShowenClass = searchParams ? 'searchx__search--minimized' : '';
   const focusedClass = (showAutoCompleteList && (autoCompleteResults?.length > 0 || searchHistory?.length > 0)) ? 'focused' : '';
@@ -37,8 +39,9 @@ const SearchSection = ({ searchParams }) => {
 
   function handleEnterPress(e) {
     if(e.keyCode === 13) {
-      updateSearchHistory(inputValue);
-      window.location.search = `?q=${inputValue.replace(/\s/g, '+')}`;
+      search(inputValue);
+      // updateSearchHistory(inputValue);
+      // window.location.search = `?q=${inputValue.replace(/\s/g, '+')}`;
     }
   }
 
