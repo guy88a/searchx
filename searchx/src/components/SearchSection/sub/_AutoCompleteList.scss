@@ -4,7 +4,8 @@
   top: 100%;
   left: -1px;
   width: 100%;
-  height: 330px;
+  padding-bottom: 25px;
+  // height: 330px;
 
   background-color: var(--bg-dark-selected);
 
@@ -27,6 +28,7 @@
 
     line-height: 30px;
     font-family: inherit;
+    color: var(--text-light);
 
     &__icon {
       display: block;
@@ -34,6 +36,11 @@
       width: 20px;
       height: 20px;
       padding-top: 5px;
+    }
+
+    &__text {
+      width: 100%;
+      text-indent: 10px;
     }
 
     &:hover {

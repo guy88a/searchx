@@ -1,51 +1,38 @@
 const AUTOCOMPLETE = [
-  ["apple",
-    ["juice",
-      ["recipe"],
-      ["shop"]
-    ],
-    ["pie",
-      ["dessert"],
-      ["recipe"]
-    ]
-  ],
+  "apple",
+  "apple juice",
+  "apple juice recipe",
+  "apple juice shop",
+  "apple pie",
+  "apple pie dessert",
+  "apple pie recipe",
 
-  ["batman",
-    ["movie",
-      ["online"],
-      ["release date"]
-    ],
-    ["arkham",
-      ["asylum"],
-      ["knight"]
-    ]
-  ],
+  "batman",
+  "batman movie",
+  "batman movie online",
+  "batman movie release date",
+  "batman arkham",
+  "batman arkham asylum",
+  "batman arkham knight",
 
-  ["catwoman",
-    ["movie",
-      ["cast"],
-      ["release date"]
-    ],
-    ["quotes",
-      ["2022"],
-      ["arkham city"]
-    ]
-  ],
-  
-  ["react",
-    ["js",
-      ["course"],
-      ["tutorials",
-        ["free"]
-        ["online"],
-        ["youtube"]
-      ]
-    ],
-    ["native",
-      ["tutorials"],
-      ["support"]
-    ]
-  ]
+  "catwoman",
+  "catwoman movie",
+  "catwoman movie cast",
+  "catwoman movie release date",
+  "catwoman quotes",
+  "catwoman quotes 2022",
+  "catwoman quotes arkham city",
+
+  "react",
+  "react js",
+  "react js course",
+  "react js tutorials",
+  "react js tutorials free",
+  "react js tutorials online",
+  "react js tutorials youtube",
+  "react native",
+  "react native tutorials",
+  "react native support",
 ];
 
 export default AUTOCOMPLETE;

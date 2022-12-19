@@ -5,6 +5,10 @@
     height: 1fr;
     padding-bottom: 10%;
 
+    &--minimized {
+      padding-bottom: 0;
+    }
+
     &__input-wrapper {
       position: relative;
       display: flex;

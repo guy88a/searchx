@@ -39,6 +39,10 @@ html, body, div, span, section, input, a {
   padding-bottom: 10%;
 }
 
+.searchx__search--minimized {
+  padding-bottom: 0;
+}
+
 .searchx__search__input-wrapper {
   position: relative;
   display: -webkit-box;
@@ -120,7 +124,7 @@ html, body, div, span, section, input, a {
   top: 100%;
   left: -1px;
   width: 100%;
-  height: 330px;
+  padding-bottom: 25px;
   background-color: var(--bg-dark-selected);
   border: 1px solid var(--bg-dark-selected);
   border-radius: 0 0 20px 20px;
@@ -140,6 +144,7 @@ html, body, div, span, section, input, a {
   padding-left: 14px;
   line-height: 30px;
   font-family: inherit;
+  color: var(--text-light);
 }
 
 .searchx__search__input-wrapper__list-wrapper__ac-item__icon {
@@ -148,6 +153,11 @@ html, body, div, span, section, input, a {
   width: 20px;
   height: 20px;
   padding-top: 5px;
+}
+
+.searchx__search__input-wrapper__list-wrapper__ac-item__text {
+  width: 100%;
+  text-indent: 10px;
 }
 
 .searchx__search__input-wrapper__list-wrapper__ac-item:hover {
