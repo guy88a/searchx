@@ -1,0 +1,29 @@
+@mixin AutoCompleteItem() {
+    height: 30px;
+    padding-left: 14px;
+
+    line-height: 30px;
+    font-family: inherit;
+    color: var(--text-light);
+
+    &--history {
+      color: var(--text-history);
+    }
+
+    &__icon {
+      display: block;
+      float: left;
+      width: 20px;
+      height: 20px;
+      padding-top: 5px;
+    }
+
+    &__text {
+      width: 100%;
+      text-indent: 10px;
+    }
+
+    &:hover {
+      background-color: var(--bg-medium-selected);
+    }
+}

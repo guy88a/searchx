@@ -1,22 +1,56 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import useAutoComplete from '../../hooks/useAutoComplete';
+import { search } from '../../utils/searchUtil';
+import { updateSearchHistory } from '../../utils/storageUtil';
+
+import AutoCompleteList from './sub/AutoCompleteList';
 
 import icon_magglass from '../../icons/mag_glass.svg'
 import icon_microphone from '../../icons/microphone.svg'
 import icon_close from '../../icons/close.svg'
-import AutoCompleteList from './sub/AutoCompleteList';
+import { useEffect } from 'react';
 
-const SearchSection = ({ }) => {
+const SearchSection = ({ searchParams }) => {
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(searchParams);
   const [showAutoCompleteList, setShowAutoCompleteList] = useState(false);
+  const containerRef = useRef(null);
+  const inputRef = useRef(null);
+  // const autoCompleteResults = useAutoComplete(inputValue);
+  // const searchHistory = getSearchHistory();
+  const { autoCompleteResults, searchHistory } = useAutoComplete(inputValue);
 
-  const focusedClass = showAutoCompleteList ? 'focused' : '';
+  const resultsShowenClass = searchParams ? 'searchx__search--minimized' : '';
+  const focusedClass = (showAutoCompleteList && (autoCompleteResults?.length > 0 || searchHistory?.length > 0)) ? 'focused' : '';
+
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      if(!e?.path?.includes(containerRef.current)) {
+        setShowAutoCompleteList(false);
+      }
+    }, false);
+  }, []);
+
+  useEffect(() => {
+    inputRef.current?.addEventListener('keydown', handleEnterPress, false);
+
+    return () => { inputRef.current?.removeEventListener('keydown', handleEnterPress, false); }
+  }, [inputValue]);
+
+  function handleEnterPress(e) {
+    if(e.keyCode === 13) {
+      search(inputValue);
+      // updateSearchHistory(inputValue);
+      // window.location.search = `?q=${inputValue.replace(/\s/g, '+')}`;
+    }
+  }
 
   function handleSetInputValue(e) {
     setInputValue(e.target.value);
   }
 
   function handleClearInputValue() {
+    inputRef.current.focus();
     setInputValue('');
   }
 
@@ -24,14 +58,14 @@ const SearchSection = ({ }) => {
     setShowAutoCompleteList(true)
   }
 
-  function handleInputBlur() {
-    setShowAutoCompleteList(false)
+  function handleInputWrapperClick() {
+    inputRef.current.focus();
   }
 
   return (
-    <div className="searchx__search">
+    <div className={`searchx__search | ${resultsShowenClass}`}>
       {/* input wrapper */}
-      <div className={`searchx__search__input-wrapper | ${focusedClass}`}>
+      <div className={`searchx__search__input-wrapper | ${focusedClass}`} ref={containerRef} onClick={handleInputWrapperClick}>
         {/* search icon */}
         <img className="searchx__search__input-wrapper__icon | searchx__search__input-wrapper__icon--glass"
           src={icon_magglass}
@@ -42,10 +76,11 @@ const SearchSection = ({ }) => {
           className="searchx__search__input-wrapper__input"
           id="search-field"
           type="text"
+          ref={inputRef}
           value={inputValue}
           onChange={handleSetInputValue}
           onFocus={handleInputFocus}
-          onBlur={handleInputBlur}
+          autoComplete="off"
         />
         {/* clear input icon */}
         {inputValue &&
@@ -61,7 +96,7 @@ const SearchSection = ({ }) => {
         />
 
         {/* list wrapper */}
-        {showAutoCompleteList && <AutoCompleteList />}
+        {showAutoCompleteList && (autoCompleteResults?.length > 0 || searchHistory?.length > 0) && <AutoCompleteList items={autoCompleteResults} history={searchHistory} setInputValue={setInputValue} />}
       </div>
     </div>
   )
